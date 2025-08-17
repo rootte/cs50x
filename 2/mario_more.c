@@ -1,9 +1,18 @@
 #include <stdio.h>
 
-int main(void){
+void print_pyramid(int height);
+int get_pyramid_height(void);
 
+int main(void)
+{
+
+    int n = get_pyramid_height();
+    print_pyramid(n);
+}
+
+int get_pyramid_height(void)
+{
     int n;
-
     do{
         printf("Height of pyramid: \n");
         if(scanf("%d", &n) == 1){
@@ -16,9 +25,12 @@ int main(void){
         }
 
     } while (n < 1 || n > 8);
+}
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
+void print_pyramid(int height)
+{
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < height - i - 1; j++) {
             printf(" ");
         }
         for (int k = 0; k < i + 1; k++) {
@@ -30,6 +42,4 @@ int main(void){
         }
         printf("\n");
     }
-
-
 }
